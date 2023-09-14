@@ -1,10 +1,14 @@
+/* 
+  Depth First Value: using Stack Data Structure
+*/
+
 import { TreeNode } from "./manual-tree";
 
 // Iteration 
-const depthFirstValue = (root: TreeNode<string>): string[] => {
+function depthFirstTraversalIteration<T> (root: TreeNode<T>): T[] {
 
-  const result: string[] = [];
-  const stack: TreeNode<string>[] = [ root ];
+  const result: T[] = [];
+  const stack: TreeNode<T>[] = [ root ];
 
   if (root === null) return result;
   
@@ -22,7 +26,16 @@ const depthFirstValue = (root: TreeNode<string>): string[] => {
 }
 
 // Recursion
-
+function depthFirstTraversalRecursion<T> (root: TreeNode<T>): T[] {
+  if (root === null) return [];
+  let leftValues: T[] = [];
+  let rightValues: T[] = [];
+  if (root.left)
+    leftValues = depthFirstTraversalRecursion(root.left);
+  if (root.right)
+    rightValues = depthFirstTraversalRecursion(root.right);
+  return [root.value, ...leftValues, ...rightValues];
+}
 
 // Initial Nodes
 const a = new TreeNode('a');
@@ -42,5 +55,7 @@ b.right = e;
 c.right = f;
 
 
-const result: string[] = depthFirstValue(a);
-console.log('result: ', result);
+const resultIteration: string[] = depthFirstTraversalIteration(a);
+const resultRecursion: string[] = depthFirstTraversalRecursion(a);
+console.log('resultIteration: ', resultIteration);
+console.log('resultRecursion: ', resultRecursion);
