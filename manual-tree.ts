@@ -1,6 +1,6 @@
 
 // Tree Node Class 
-class TreeNode<T> {
+export class TreeNode<T> {
   value: T;
   left: TreeNode<T> | null;
   right: TreeNode<T> | null;
@@ -30,6 +30,6 @@ b.right = e;
 
 c.right = f;
 
-console.log(a);
-console.log(b);
-console.log(c);
+// console.log(a);
+// console.log(b);
+// console.log(c);
