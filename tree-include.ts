@@ -18,6 +18,7 @@ function treeIncludeBFS<T> (root: TreeNode<T>, target: T): boolean {
   return false;
 }
 
+// Depth First Search - Recursive
 function treeIncludeDFS<T> (root: TreeNode<T>, target: T): boolean {
 
   // Base case
